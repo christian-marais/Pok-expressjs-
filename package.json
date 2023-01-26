@@ -1,0 +1,14 @@
+{
+  "name": "node-pokemon-api",
+  "version": "1.0.0",
+  "description": " projet api rest nodejs",
+  "main": "App.js",
+  "scripts": {
+    "start": "node App.js"
+  },
+  "author": "christian",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
