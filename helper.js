@@ -1,8 +1,6 @@
-const success = (message, data )=>{
+exports.success = (message, data )=>{
     return {
-        message:message,
-        data:data
+        message,data
     }
 }
 
-exports.success
