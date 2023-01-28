@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
 const {success, getUniqueId} = require('./helper.js')
 const port = 3000
 let pokemons = require('./mock-pokemon.js')
@@ -9,6 +10,7 @@ const favicon = require('serve-favicon')
 app 
     .use(favicon(__dirname + '/favicon.ico'))
     .use(morgan('dev'))
+    .use(bodyParser.json())
 console.log(__dirname+'\\favicon.ico')
 
 /*app.use((req,res,next) =>{
@@ -18,8 +20,8 @@ console.log(__dirname+'\\favicon.ico')
 app.post('/api/pokemons',(req,res) => {
     const id = getUniqueId(pokemons)
     const pokemonCreated = {...req.body,...{id:id,created:new Date()}}
-    console.log(pokemonCreated)
-    const message = `le pokemon ok ${pokemonCreated} a bien été crée.`
+    pokemons.push(pokemonCreated)
+    const message = `le pokemon ${pokemonCreated} a bien été crée.`
     res.json(success(message,pokemonCreated))
 })
 app.get('/',(req,res) => res.send('Hello, Express!!!222'))
