@@ -18,7 +18,8 @@ console.log(__dirname+'\\favicon.ico')
 app.post('/api/pokemons',(req,res) => {
     const id = getUniqueId(pokemons)
     const pokemonCreated = {...req.body,...{id:id,created:new Date()}}
-    const message = `le pokemon ${pokemonCreated} a bien été crée.`
+    console.log(pokemonCreated)
+    const message = `le pokemon ok ${pokemonCreated} a bien été crée.`
     res.json(success(message,pokemonCreated))
 })
 app.get('/',(req,res) => res.send('Hello, Express!!!222'))
