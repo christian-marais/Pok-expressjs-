@@ -19,6 +19,7 @@ console.log(__dirname+'\\favicon.ico')
 })*/
 app.post('/api/pokemons',(req,res) => {
     const id = getUniqueId(pokemons)
+    console.log(typeof req.body)
     const pokemonCreated = {...req.body,...{id:id,created:new Date()}}
     pokemons.push(pokemonCreated)
     const message = `le pokemon ${pokemonCreated} a bien été crée.`
@@ -36,6 +37,16 @@ app.get('/api/pokemons', (req,res)=> {
     // res.send(` il y a ${pokemons.length} dans le pokedex`)
     const message = `il y a ${pokemons.length} dans le pokedex `
     res.json(success(message,pokemons))
+})
+
+app.put('api/pokemons/:id',(req,res)=>{
+    const id = req.params.id
+    const pokemonUpdated = { ...req.body,id:id}
+    pokemons = pokemons.map(pokemon =>{
+        return pokemon.id === id ? pokemonUpdated:pokemon
+    })
+    const message = ` le pokemon ${pokemonUpdated} a bien été modifié`
+    res.json(success(message,pokemonUpdated))
 })
 
 app.listen(port,() =>console.log(`Notre application Node est démarrée sur : http://localhost:${port}`))
