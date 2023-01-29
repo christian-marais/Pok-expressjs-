@@ -1,12 +1,26 @@
 const express = require('express')
 const app = express()
+const port = 3000
+
 const bodyParser = require('body-parser')
 const {success, getUniqueId} = require('./helper.js')
-const port = 3000
-let pokemons = require('./mock-pokemon.js')
 const morgan = require('morgan')
 const favicon = require('serve-favicon')
+const {Sequelize} = require('sequelize')
 
+const sequelize = new Sequelize(
+    'pokedex',//nom de la bdd
+    'christian',
+    '1997',
+    {
+        host:'localhost',
+        dialect :'mysql',
+        logging: false 
+    }
+)
+ sequelize.authenticate()
+    .then(() => console.log('la connexion à la bdd  a été établie'))
+    .catch(error => console.error(`impossible de se connecter à la bdd ${error}`))
 app 
     .use(favicon(__dirname + '/favicon.ico'))
     .use(morgan('dev'))
