@@ -39,14 +39,24 @@ app.get('/api/pokemons', (req,res)=> {
     res.json(success(message,pokemons))
 })
 
-app.put('api/pokemons/:id',(req,res)=>{
-    const id = req.params.id
+app.put('/api/pokemons/:id',(req,res)=>{
+    const id = parseInt(req.params.id) 
     const pokemonUpdated = { ...req.body,id:id}
     pokemons = pokemons.map(pokemon =>{
         return pokemon.id === id ? pokemonUpdated:pokemon
     })
-    const message = ` le pokemon ${pokemonUpdated} a bien été modifié`
+    const message = ` le pokemon ${pokemonUpdated.name} a bien été modifié`
     res.json(success(message,pokemonUpdated))
+})
+
+app.delete('/api/pokemons/:id', (req,res) => {
+    const id = parseInt(req.params.id)
+    let pokemonDeleted = pokemons.find(pokemon => pokemon.id === id)
+    pokemons = pokemons.filter(pokemon => pokemon.id !==id)
+    const message = `le pokemon ${pokemonDeleted.name} a bien été supprimé`
+    
+    // const message = `le pokemon ${pokemonDeleted} a bien été supprimé`
+    res.json(success(message,pokemonDeleted))
 })
 
 app.listen(port,() =>console.log(`Notre application Node est démarrée sur : http://localhost:${port}`))
