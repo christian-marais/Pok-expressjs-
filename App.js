@@ -27,7 +27,7 @@ app
     .use(bodyParser.json())
 console.log(__dirname+'\\favicon.ico')
 
-/*app.use((req,res,next) =>{
+/*app.use((req,res,next) =>{//middleware
     console.log (`URL: ${req.url}`)
     next()
 })*/
