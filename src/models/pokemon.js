@@ -1,8 +1,8 @@
-module.exports = (sequelize, Datatypes) =>{
+module.exports = (sequelize, DataTypes) =>{
     return sequelize.define('Pokemon',{
         id: {
             type: DataTypes.INTEGER,
-            primarykey: true,
+            primaryKey: true,
             autoIncrement:true
         },
         name: {
@@ -28,6 +28,6 @@ module.exports = (sequelize, Datatypes) =>{
     },{
         timestamps:true,
         createdAt:'created',
-        updateAt:false
+        updateAt:true,
     })
 }

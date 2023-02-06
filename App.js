@@ -8,7 +8,7 @@ const morgan = require('morgan')
 const favicon = require('serve-favicon')
 const {Sequelize, DataTypes} = require('sequelize')
 let pokemons = require('./mock-pokemon.js')
-const PokemonModel = require('./src/models/pokemon.js')
+const PokemonModel = require('./src/models/pokemon')
 
 const sequelize = new Sequelize(
     'pokedex',
@@ -37,7 +37,7 @@ sequelize.authenticate()
     .then(() => console.log('la connexion à la bdd  a été établie'))
     .catch(error => console.error(`impossible de se connecter à la bdd ${error}`))
 
-// const Pokemon = PokemonModel(sequelize,DataTypes)
+const Pokemon = PokemonModel(sequelize,DataTypes)
 
 sequelize.sync({force:true})
 .then(__=>console.log('la base de données "Pokedex" a bien été synchronisée '))
