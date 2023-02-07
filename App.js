@@ -3,6 +3,7 @@ const morgan = require('morgan')
 const favicon = require('serve-favicon')
 const express = require('express')
 const sequelize = require ('./src/db/sequelize.js')
+const findAllPokemons = require('./src/routes/findAllPokemons.js')
 
 const app = express()
 const port = 3000
@@ -10,7 +11,7 @@ const port = 3000
 sequelize.initDb()
 
 // placements des futurs points de terminaisons
-
+require('./src/routes/findAllPokemons')(app)
 app.listen(port,() =>console.log(`Notre application Node est démarrée sur : http://localhost:${port}`))
 
 

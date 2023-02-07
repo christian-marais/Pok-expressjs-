@@ -5,7 +5,7 @@ module.exports = (app) => {
     Pokemon.findAll()
       .then(pokemons => {
         const message = 'La liste des pokémons a bien été récupérée.'
-        res.json({ message, data: pokemons })
+        res.json({ message, data: pokemons })// méthode founnie par express
       })
   })
 }
