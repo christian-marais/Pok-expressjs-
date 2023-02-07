@@ -9,20 +9,24 @@ const app = express()
 const port = 3000
 
 sequelize.initDb()
+app
+    .use(favicon(__dirname + '/favicon.ico'))
+    .use(morgan('dev'))
+    .use(bodyParser.json())
 
 // placements des futurs points de terminaisons
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findPokemonByPk')(app)
 require('./src/routes/createPokemon')(app)
+
+
+    
 app.listen(port,() =>console.log(`Notre application Node est démarrée sur : http://localhost:${port}`))
 
 
 
 
-app
-    .use(favicon(__dirname + '/favicon.ico'))
-    .use(morgan('dev'))
-    .use(bodyParser.json())
+
 
 // const {success, getUniqueId} = require('./helper.js')
 // const {Sequelize, DataTypes} = require('sequelize')
