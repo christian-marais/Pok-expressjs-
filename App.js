@@ -21,7 +21,11 @@ require('./src/routes/createPokemon')(app)
 require('./src/routes/updatePokemon')(app)
 require('./src/routes/deletePokemon')(app)
 
-
+// gestion des erreurs 404
+app.use(({res})=>{// si on ne veut pas mettre req
+    const message =" Impossible de trouver la resource demandée. Vous pouvez essayer une autre url"
+    res.status(404).json({message})
+})  
     
 app.listen(port,() =>console.log(`Notre application Node est démarrée sur : http://localhost:${port}`))
 

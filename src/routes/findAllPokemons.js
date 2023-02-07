@@ -5,8 +5,12 @@ module.exports = (app) => {
     Pokemon.findAll()
       .then(pokemons => {
         const message = 'La liste des pokémons a bien été récupérée.'
-        res.json({ message, data: pokemons })// méthode founnie par express
+        res.json({ message, data: pokemons })// méthode fournie par express
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        const message="la liste des pokemons n'a pas pu être récupérée. Réessayer dans quelques instants"
+        res.status(500).json({message,data:error})
+        console.log(error)
+      })
   })
 }
