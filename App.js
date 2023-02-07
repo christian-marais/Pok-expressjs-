@@ -13,6 +13,7 @@ sequelize.initDb()
 // placements des futurs points de terminaisons
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findPokemonByPk')(app)
+require('./src/routes/createPokemon')(app)
 app.listen(port,() =>console.log(`Notre application Node est démarrée sur : http://localhost:${port}`))
 
 
