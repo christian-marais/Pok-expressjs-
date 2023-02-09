@@ -3,8 +3,10 @@ const {Op} = require('sequelize')
   
 module.exports = (app) => {
   app.get('/api/pokemons', (req, res) => {
+   
     if(req.query.name){
       const name = req.query.name
+      let limit= parseInt(req.query.limit)||5
       return Pokemon.findAndCountAll({
         where:{
           name:{// 'name' est le nom de la propriété du modèle pokemon
@@ -12,7 +14,7 @@ module.exports = (app) => {
           }
         },
         order:['name'],
-        limit:5
+        limit:limit
       })
       .then(({count,rows})=>{// les deux 
         const message = `Il y a ${count} qui correspondent à la recherche ${name}`
