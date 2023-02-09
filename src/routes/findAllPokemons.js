@@ -13,7 +13,7 @@ module.exports = (app) => {
         },
         limit:5
       })
-      .then(({count,rows})=>{
+      .then(({count,rows})=>{// les deux 
         const message = `Il y a ${count} qui correspondent à la recherche ${name}`
         res.json({message,data:rows})
       })
