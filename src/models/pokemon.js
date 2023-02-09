@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) =>{
             validate:{
                 notEmpty:{msg:" Un nom est indispensable au Pokemon. La chaine ne peut être vide"},
                 notNull:{msg:"Le nom est une propriété requise"}
-            }
+            },
+            unique:{msg: " le nom du pokemon est déjà pris. Essayez en un autre"}
         },
         hp:{
             type:DataTypes.INTEGER,
