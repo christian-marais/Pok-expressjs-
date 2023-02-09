@@ -9,17 +9,21 @@ module.exports = (app) => {
     })
     .then(user => {
         if(!user){
-            
+            const message= "L'utilisateur demandé n'existe pas"
+            return res.status(404).json({message})
         }
         bcrypt.compare(req.body.password, user.password).then(isPasswordValid => {
             if(isPasswordValid) {
-                const message = `L'utilisateur a été connecté avec succès`;
-                return res.json({ message, data: user })
+                const message = `Le mot de passe est incorrect`;
+                return res.status(401).json({ message})
             }
+            const message = `L'utilisateur a été connecté avec succès`;
+            return res.json({ message, data: user })
         })
-    }).catch(erreur =>{
-        const message = "l'utilisateur n'existe pas"
-        res.status(400).json({message,data:erreur})
+    })
+    .catch(error =>{
+        const message = `L'utilisateur n'a pas pu être connecté. Réessayez ultérieurement`;
+            return res.status(500).json({ message, data: error})
     })
   })
 }
