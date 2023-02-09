@@ -11,6 +11,7 @@ module.exports = (app) => {
             [Op.like]:`%${name}%` // 'name' est le critere de la recherche
           }
         },
+        order:['name'],
         limit:5
       })
       .then(({count,rows})=>{// les deux 
@@ -22,7 +23,9 @@ module.exports = (app) => {
       //   res.json({message,data:pokemons})
       // })
     }else{
-      Pokemon.findAll()
+      Pokemon.findAll(
+        {order:['name']}
+      )
       .then(pokemons => {
         const message = 'La liste des pokémons a bien été récupérée.'
         res.json({ message, data: pokemons })// méthode fournie par express
