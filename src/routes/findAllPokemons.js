@@ -1,10 +1,17 @@
 const { Pokemon } = require('../db/sequelize')
+const {Op} = require('sequelize')
   
 module.exports = (app) => {
   app.get('/api/pokemons', (req, res) => {
     if(req.query.name){
       const name = req.query.name
-      return Pokemon.findAll({where:{name}})
+      return Pokemon.findAll({
+        where:{
+          name:{// 'name' est le nom de la propriété du modèle pokemon
+            [Op.eq]:name // 'name' est le critere de la recherche
+          }
+        }
+      })
       .then(pokemons=>{
         const message = `Il y a ${pokemons.length} qui correspondent à la recherche ${name}`
         res.json({message,data:pokemons})
