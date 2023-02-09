@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) =>{
             validate:{
                 notEmpty:{msg:" Un nom est indispensable au Pokemon. La chaine ne peut être vide"},
                 notNull:{msg:"Le nom est une propriété requise"}
-                
             }
         },
         hp:{
