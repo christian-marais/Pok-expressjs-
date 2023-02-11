@@ -10,10 +10,10 @@ const port = process.env.PORT || 3000
 sequelize.initDb()
 app
     .use(favicon(__dirname + '/favicon.ico'))
-    //.use(morgan('dev'))
     .use(bodyParser.json())
+    //.use(morgan('dev'))
 
-app.get('/,',(req,res)=>{
+app.get('/',(req,res)=>{
     res.json({message:'hello heroku'})
 })
 //  placements des futurs points de terminaisons
