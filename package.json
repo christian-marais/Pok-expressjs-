@@ -22,4 +22,3 @@
     "nodemon": "^2.0.20"
   }
 }
-// "dev": "SET NODE_ENV=development & nodemon App.js"
