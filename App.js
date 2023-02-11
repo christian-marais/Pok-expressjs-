@@ -13,7 +13,7 @@ app
     .use(bodyParser.json())
     //.use(morgan('dev'))
 
-app.get('/',(req,res)=>{
+app.get('',(req,res)=>{
     res.json({message:'hello heroku'})
 })
 //  placements des futurs points de terminaisons
