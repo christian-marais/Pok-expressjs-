@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const favicon = require('serve-favicon')
 const express = require('express')
 const sequelize = require ('./src/db/sequelize.js')
-const findAllPokemons = require('./src/routes/findAllPokemons.js')
 
 const app = express()
 const port = process.env.PORT || 3000

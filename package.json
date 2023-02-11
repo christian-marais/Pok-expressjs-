@@ -4,7 +4,8 @@
   "description": " projet api rest nodejs",
   "main": "App.js",
   "scripts": {
-    "start": "NODE_ENV=production node App.js"
+    "start": "NODE_ENV=production node App.js",
+    "dev" : "NODE_ENV=development nodemon App.js"
   },
   "author": "christian",
   "license": "ISC",
