@@ -1,20 +1,20 @@
 const bodyParser = require('body-parser')
-const morgan = require('morgan')
+//const morgan = require('morgan')
 const favicon = require('serve-favicon')
 const express = require('express')
 const sequelize = require ('./src/db/sequelize.js')
 const findAllPokemons = require('./src/routes/findAllPokemons.js')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 sequelize.initDb()
 app
     .use(favicon(__dirname + '/favicon.ico'))
-    .use(morgan('dev'))
+    //.use(morgan('dev'))
     .use(bodyParser.json())
 
-// placements des futurs points de terminaisons
+//  placements des futurs points de terminaisons
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findPokemonByPk')(app)
 require('./src/routes/createPokemon')(app)
@@ -79,6 +79,7 @@ app.listen(port,() =>console.log(`Notre application Node est démarrée sur : ht
     console.log (`URL: ${req.url}`)
     next()
 })*/
+
 // app.post('/api/pokemons',(req,res) => {
 //     const id = getUniqueId(pokemons)
 //     console.log(typeof req.body)
