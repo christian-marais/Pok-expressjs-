@@ -13,9 +13,9 @@ app
     .use(favicon(__dirname + '/favicon.ico'))
     //.use(morgan('dev'))
     .use(bodyParser.json())
-    
+
 app.get('/,',(req,res)=>{
-    res.json('hello heroku')
+    res.json({message:'hello heroku'})
 })
 //  placements des futurs points de terminaisons
 require('./src/routes/findAllPokemons')(app)
