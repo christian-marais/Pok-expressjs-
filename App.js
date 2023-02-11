@@ -14,6 +14,9 @@ app
     //.use(morgan('dev'))
     .use(bodyParser.json())
 
+app.get('/,',(req,res)=>{
+    res.json({message:'hello heroku'})
+})
 //  placements des futurs points de terminaisons
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findPokemonByPk')(app)
