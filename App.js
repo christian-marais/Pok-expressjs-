@@ -6,15 +6,17 @@ const sequelize = require ('./src/db/sequelize.js')
 const app = express()
 const port = process.env.PORT || 3000
 
-sequelize.initDb()
+
 app
     .use(favicon(__dirname + '/favicon.ico'))
     .use(bodyParser.json())
-   
 
-app.get('',(req,res)=>{
-    res.json({message:'hello heroku'})
+sequelize.initDb()   
+
+app.get('/', (req,res)=>{
+    res.json({message:'Hello Heroku'})
 })
+
 //  placements des futurs points de terminaisons
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findPokemonByPk')(app)
