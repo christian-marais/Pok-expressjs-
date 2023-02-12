@@ -1,5 +1,4 @@
 const bodyParser = require('body-parser')
-//const morgan = require('morgan')
 const favicon = require('serve-favicon')
 const express = require('express')
 const sequelize = require ('./src/db/sequelize.js')
@@ -11,7 +10,7 @@ sequelize.initDb()
 app
     .use(favicon(__dirname + '/favicon.ico'))
     .use(bodyParser.json())
-    //.use(morgan('dev'))
+   
 
 app.get('',(req,res)=>{
     res.json({message:'hello heroku'})
@@ -34,8 +33,8 @@ app.listen(port,() =>console.log(`Notre application Node est démarrée sur : ht
 
 
 
-
-
+//const morgan = require('morgan')
+ //app.use(morgan('dev'))
 
 // const {success, getUniqueId} = require('./helper.js')
 // const {Sequelize, DataTypes} = require('sequelize')
