@@ -2,10 +2,10 @@
   "name": "node-pokemon-api",
   "version": "1.0.0",
   "description": " projet api rest nodejs",
-  "main": "App.js",
+  "main": "app.js",
   "scripts": {
-    "start": "NODE_ENV=production node App.js",
-    "dev": "NODE_ENV=development nodemon App.js"
+    "start": "NODE_ENV=production node app.js",
+    "dev": "NODE_ENV=development nodemon app.js"
   },
   "author": "christian",
   "license": "ISC",
