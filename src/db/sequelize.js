@@ -13,7 +13,7 @@ if(process.env.NODE_ENV ==='production'){
     dialectOptions: {
       timezone: 'Etc/GMT-2',
     },
-    logging: false
+    logging: true
   })
 }else{
   sequelize = new Sequelize('pokedex', 'root', '', {
