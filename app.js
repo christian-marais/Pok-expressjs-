@@ -11,19 +11,19 @@ app
     .use(favicon(__dirname + '/favicon.ico'))
     .use(bodyParser.json())
 
-// sequelize.initDb()   
+sequelize.initDb()   
 
 app.get('/', (req,res)=>{
     res.json({message:'Hello Heroku'})
 })
 
 //  placements des futurs points de terminaisons
-// require('./src/routes/findAllPokemons')(app)
-// require('./src/routes/findPokemonByPk')(app)
-// require('./src/routes/createPokemon')(app)
-// require('./src/routes/updatePokemon')(app)
-// require('./src/routes/deletePokemon')(app)
-// require('./src/routes/login')(app)
+require('./src/routes/findAllPokemons')(app)
+require('./src/routes/findPokemonByPk')(app)
+require('./src/routes/createPokemon')(app)
+require('./src/routes/updatePokemon')(app)
+require('./src/routes/deletePokemon')(app)
+require('./src/routes/login')(app)
 
 // gestion des erreurs 404
 app.use(({res})=>{// si on ne veut pas mettre req
