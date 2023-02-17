@@ -1,4 +1,4 @@
-const validTypes =["Plante","Poison","Feu", "Insecte","Vol","Normal","Electrik","Fée"]
+const validTypes =["Plante","Poison","Feu","Eau", "Insecte","Vol","Normal","Electrik","Fée"]
 
 module.exports = (sequelize, DataTypes) =>{
     return sequelize.define('Pokemon',{
