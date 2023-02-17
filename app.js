@@ -18,12 +18,12 @@ app.get('/', (req,res)=>{
 })
 
 //  placements des futurs points de terminaisons
-// require('./src/routes/findAllPokemons')(app)
-// require('./src/routes/findPokemonByPk')(app)
-// require('./src/routes/createPokemon')(app)
-// require('./src/routes/updatePokemon')(app)
-// require('./src/routes/deletePokemon')(app)
-// require('./src/routes/login')(app)
+require('./src/routes/findAllPokemons')(app)
+require('./src/routes/findPokemonByPk')(app)
+require('./src/routes/createPokemon')(app)
+require('./src/routes/updatePokemon')(app)
+require('./src/routes/deletePokemon')(app)
+require('./src/routes/login')(app)
 
 // gestion des erreurs 404
 app.use(({res})=>{// si on ne veut pas mettre req
